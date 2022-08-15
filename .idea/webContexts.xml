@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/courses/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/courses" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/courses/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/courses" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/periods/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/periods" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/periods/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/periods" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/places/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/places" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/quarters/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/quarters" />
+      </map>
+    </option>
+  </component>
+</project>
