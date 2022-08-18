@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>ADMIN | Registrar Espacios</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
@@ -74,6 +75,9 @@
                                     </div>
                                 </div> -->
                                 <hr>
+                                <div class="form-message" id="form-message">
+                                    <p>Por favor rellena los campos del formulario</p>
+                                </div>
                                 <div class="col-12 text-end">
                                     <a href="get-places" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
@@ -88,4 +92,5 @@
 </div>
 <jsp:include page="../layouts/footer.jsp"/>
 </body>
+<script src="../../assets/js/validations.js"></script>
 </html>

@@ -3,13 +3,14 @@ package com.edu.utez.asesesoria.model.schedules;
 public class BeanSchedule {
     private long id;
     private String description;
+    private int status;
 
     public BeanSchedule() {
     }
 
-    public BeanSchedule(long id, String description) {
-        this.id = id;
+    public BeanSchedule(String description, int status) {
         this.description = description;
+        this.status = status;
     }
 
     public long getId() {
@@ -26,5 +27,13 @@ public class BeanSchedule {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

@@ -57,14 +57,6 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-6">
-                                    <label for="validationCustom05" class="form-label fw-bold">Contraseña:</label>
-                                    <input type="password" id="validationCustom05" class="form-control" value="${person.password}" required
-                                           name="pass">
-                                    <div class="invalid-feedback">
-                                        Campo obligatorio.
-                                    </div>
-                                </div> -->
                                 <div class="col-6">
                                     <label for="validationCustom06" class="form-label fw-bold">Fecha de Nacimiento:</label>
                                     <input type="date" class="form-control" id="validationCustom06" value="<%= person.getBirthDay()%>" required

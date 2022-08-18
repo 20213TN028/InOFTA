@@ -128,7 +128,6 @@ public class DaoPerson {
             pste.setDate(4, person.getBirthDay());
             pste.setString(5, person.getEmail());
             pste.setString(6, person.getEmployeeNumber());
-            //pste.setString(7, person.getStudentID());
             pste.setLong(7, person.getId());
             return pste.executeUpdate() == 1;
         }catch (SQLException e){
@@ -143,13 +142,12 @@ public class DaoPerson {
         try{
             conn = new MySQLConnection().connect();
             pste = conn.prepareStatement("UPDATE users SET name=?, surname=?, lastname=?, birth_day=?, email=?, student_id=?" +
-                    "WHERE id=?");
+                    " WHERE id=?");
             pste.setString(1, person.getName());
             pste.setString(2, person.getSurname());
             pste.setString(3, person.getLastname());
             pste.setDate(4, person.getBirthDay());
             pste.setString(5, person.getEmail());
-            //pste.setString(6, person.getEmployeeNumber());
             pste.setString(6, person.getStudentID());
             pste.setLong(7, person.getId());
             return pste.executeUpdate() == 1;
@@ -204,6 +202,7 @@ public class DaoPerson {
                 person.setEmail(rs.getString("email"));
                 person.setPassword(rs.getString("password"));
                 person.setRole(rs.getString("role"));
+                return person;
             }
         }catch (SQLException e){
             Logger.getLogger(DaoPerson.class.getName()).log(Level.SEVERE, "Error loginPerson", e);

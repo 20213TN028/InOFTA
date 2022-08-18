@@ -15,24 +15,20 @@ import java.sql.Date;
         urlPatterns = {"/get-people",
                 "/register-instructor",
                 "/update-instructor",
-                //"/delete-instructor",
                 "/save-instructor",
                 "/update-instructor-confirm",
-                //"/delete-instructor-confirm",
                 "/disable-instructor",
                 "/enable-instructor",
                 //----------------------------
                 "/get-students",
                 "/register-student",
                 "/update-student",
-                //"/delete-student",
                 "/save-student",
                 "/update-student-confirm",
-                //"/delete-student-confirm",
                 "/disable-student",
                 "/enable-student",
-                "/index-instructor",
-                "/index-student"
+                "/get-instructor",
+                "/get-student"
         })
 public class ServletPeople extends HttpServlet {
     String action, urlRedirect = "/get-people";
@@ -46,10 +42,16 @@ public class ServletPeople extends HttpServlet {
                 request.setAttribute("people", new ServicePeople().getAll());
                 urlRedirect = "/views/people/index.jsp";
                 break;
-            case "/index-instructor":
+            case "/get-instructor":
+                String idI = request.getParameter("id");
+                idI = (idI == null) ? "0" : idI;
+                request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idI)));
                 urlRedirect = "/views/people/users/indexInstructor.jsp";
                 break;
-            case "/index-student":
+            case "/get-student":
+                String idS = request.getParameter("id");
+                idS = (idS == null) ? "0" : idS;
+                request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idS)));
                 urlRedirect = "/views/people/users/indexStudent.jsp";
                 break;
             case "/register-instructor":
@@ -58,15 +60,16 @@ public class ServletPeople extends HttpServlet {
             case "/update-instructor":
                 String id = request.getParameter("id");
                 id = (id == null) ? "0" : id;
-                //BeanPerson person = servicePeople.getOne(Long.parseLong(id));
                 request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(id)));
-                //request.setAttribute("people", new ServicePeople().getOne(Long.parseLong(id)));
                 urlRedirect = "/views/people/update.jsp";
                 break;
             case "/register-student":
                 urlRedirect = "/views/people/createStudent.jsp";
                 break;
             case "/update-student":
+                String idUS = request.getParameter("id");
+                idUS = (idUS == null) ? "0" : idUS;
+                request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idUS)));
                 urlRedirect = "/views/people/updateStudent.jsp";
                 break;
             default:
@@ -106,9 +109,12 @@ public class ServletPeople extends HttpServlet {
                     if (rb) {
                         result = new ServicePeople().save(person);
                         System.out.println("No Existe Este Registro, Se puede Ingresar Un Dato");
+                        //request.setAttribute("result", result);
+                        System.out.println("Toast result-> "+result);
                     }else {
                         result = false;
                         System.out.println("Existe Este Registro, No Se Puede Ingresar Un Registro");
+                        System.out.println("Toast result-> "+result);
                     }
 
                     if (result) {
@@ -116,7 +122,6 @@ public class ServletPeople extends HttpServlet {
                     } else {
                         urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
                     }
-
                 } catch (Exception e) {
                     urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
                 }
@@ -230,22 +235,6 @@ public class ServletPeople extends HttpServlet {
                     urlRedirect = "/index.jsp?message=Hubo un error&result=false&status=400";
                 }
                 break;
-            /*case "/delete-instructor-confirm":
-                try{
-                    String idToDelete = request.getParameter("idTD");
-                    idToDelete = (idToDelete == null) ? "0" : idToDelete;
-                    System.out.println(idToDelete);
-                    boolean resultAction = servicePeople.delete(Long.parseLong(idToDelete));
-                    if (resultAction) {
-                        urlRedirect = "/get-people?message=Eliminado correctamente&result=true&status=200";
-                    } else {
-                        urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
-                    }
-                } catch (Exception e){
-                    urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
-                }
-                urlRedirect = "/get-people";
-                break;*/
             case "/update-student-confirm":
                 String nameUS = request.getParameter("name");
                 String surnameUS = request.getParameter("surname");
@@ -263,17 +252,16 @@ public class ServletPeople extends HttpServlet {
                     personUS.setEmail(emailUS);
                     personUS.setPassword(passUS);
                     personUS.setBirthDay(Date.valueOf(birthDayUS));
-                    personUS.setEmployeeNumber(studentIdUS);
+                    personUS.setStudentID(studentIdUS);
                     personUS.setId(Long.parseLong(idUS));
                     boolean resultUS = new ServicePeople().updateStudent(personUS);
-                    //boolean resultU = servicePeople.update(personU);
                     if (resultUS) {
-                        urlRedirect = "/get-people?message=Modificado correctamente&result=true&status=200";
+                        urlRedirect = "/get-student?id="+personUS.getId()+"&?message=Modificado correctamente&result=true&status=200";
                     } else {
-                        urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
+                        urlRedirect = "/get-student?id="+personUS.getId()+"&?message=Hubo un error&result=false&status=400";
                     }
                 } catch (Exception e) {
-                    urlRedirect = "/get-people?message=Hubo un error&result=false&status=400";
+                    urlRedirect = "/index.jsp?message=Hubo un error&result=false&status=400";
                 }
                 break;
             case "/disable-student": // Cómo va a funcionar?????????

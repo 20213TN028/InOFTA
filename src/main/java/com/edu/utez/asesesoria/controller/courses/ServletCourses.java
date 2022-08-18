@@ -17,12 +17,11 @@ import java.io.IOException;
         urlPatterns = {"/get-courses",
                 "/register-course",
                 "/update-course",
-                //"/delete-course",
                 "/save-course",
                 "/update-course-confirm",
-                //"/delete-course-confirm",
                 "/disable-course",
-                "/enable-course"
+                "/enable-course",
+                "/get-offers"
         })
 
 public class ServletCourses extends HttpServlet {
@@ -36,6 +35,13 @@ public class ServletCourses extends HttpServlet {
             case "/get-courses":
                 request.setAttribute("courses", new ServiceCourses().getAll());
                 urlRedirect = "/views/courses/index.jsp";
+                break;
+            case "/get-offers":
+                String idO = request.getParameter("id");
+                idO = (idO == null) ? "0" : idO;
+                request.setAttribute("courses", new ServiceCourses().getAll());
+                request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idO)));
+                urlRedirect = "/views/people/users/offers.jsp";
                 break;
             case "/register-course":
                 request.setAttribute("courses", new ServiceCourses().getAll());
@@ -51,7 +57,6 @@ public class ServletCourses extends HttpServlet {
                 request.setAttribute("places", new ServicePlaces().getAll());
                 request.setAttribute("people", new ServicePeople().getAll());
                 request.setAttribute("schedules", new ServiceSchedules().getAll());
-                //request.setAttribute("courses", new ServiceCourses().getOne(Long.parseLong(id)));
                 urlRedirect = "/views/courses/update.jsp";
                 break;
             default:

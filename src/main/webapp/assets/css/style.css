@@ -1,0 +1,25 @@
+.form-group-incorrecto .form-label{
+    color: #bb2929 !important;
+}
+
+.form-group-incorrecto .form-control {
+    border: 2px solid #bb2929 !important;
+}
+
+form -message {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #F66D6D !important;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+}
+
+.form-message-activo{
+    display: block;
+}
+
+.invalid-feedback-active{
+    display: block;
+}

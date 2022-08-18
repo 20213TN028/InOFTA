@@ -59,13 +59,6 @@
                                             <td><%= person.getRole() %></td>
                                             <td><%= person.getEmployeeNumber() %></td>
                                             <td><%= person.getStatus() == 1 ? "Activo" : "Inactivo" %></td>
-                                            <!--<td>${person.count}</td>
-                                            <td>${person.name} ${person.surname} ${person.lastname}</td>
-                                            <td>${person.email}</td>
-                                            <td>${person.birthDay}</td>
-                                            <td>${person.role}</td>
-                                            <td>${person.employeeNumber}</td>
-                                            <td>${person.status == 1 ? "Activo":"Inactivo"}</td>-->
                                             <td>
                                                 <a href="update-instructor?id=<%= person.getId()%>" class="btn btn-outline-warning btn-sm">EDITAR</a>
                                                 <%

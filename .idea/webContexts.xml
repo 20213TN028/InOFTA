@@ -6,9 +6,11 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/courses/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/courses" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/courses/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/courses" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/layouts/navbarInstructor.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/layouts" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/people/users/offers.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/people/users" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/periods/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/periods" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/periods/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/periods" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/places/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/places" />

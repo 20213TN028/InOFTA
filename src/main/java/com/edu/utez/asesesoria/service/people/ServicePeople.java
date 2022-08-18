@@ -29,6 +29,7 @@ public class ServicePeople {
     public boolean enable(BeanPerson person){return daoPerson.enable(person);}
     public boolean delete(long id) {return daoPerson.delete(id);}
     public boolean validatePerson(BeanPerson person){return daoPerson.validatePerson(person);}
+    public BeanPerson login(String email, String password){return daoPerson.login(email, password);}
 
     /*public static void main(String[] args) {
         BeanPerson person = new BeanPerson();

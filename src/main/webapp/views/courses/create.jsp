@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>ADMIN | Registrar Taller</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
@@ -34,8 +35,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form class="row g-3 needs-validation" novalidate action="save-course" method="post">
-                                <div class="col-md-4">
+                            <form class="row g-3 needs-validation" id="form" novalidate action="save-course" method="post">
+                                <div class="col-md-4" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                            name="name">
@@ -43,7 +44,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="group-type">
                                     <label for="validationCustom02" class="form-label fw-bold">Tipo de Taller:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom02"
                                     name="type">
@@ -78,7 +79,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>-->
-                                <div class="col-6">
+                                <div class="col-6" id="group-scheId">
                                     <label for="validationCustom06" class="form-label fw-bold">Horario:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom06"
                                             name="scheId">
@@ -95,7 +96,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="group-placeId">
                                     <label for="validationCustom03" class="form-label fw-bold">Espacio:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom03"
                                             name="placeId">
@@ -112,7 +113,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="group-usersId">
                                     <label for="validationCustom08" class="form-label fw-bold">Docente:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom08"
                                             name="usersId">
@@ -127,6 +128,9 @@
                                     </select>
                                 </div>
                                 <hr>
+                                <div class="form-message" id="form-message">
+                                    <p>Por favor rellena los campos del formulario</p>
+                                </div>
                                 <div class="col-12 text-end">
                                     <a href="get-courses" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
@@ -141,4 +145,5 @@
 </div>
 <jsp:include page="../layouts/footer.jsp"/>
 </body>
+<script src="../../assets/js/validations.js"></script>
 </html>

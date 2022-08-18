@@ -27,6 +27,7 @@ public class DaoSchedule {
                 schedule = new BeanSchedule();
                 schedule.setId(rs.getLong("id"));
                 schedule.setDescription(rs.getString("description"));
+                schedule.setStatus(rs.getInt("status"));
                 schedules.add(schedule);
             }
         }catch (SQLException e){
@@ -48,6 +49,7 @@ public class DaoSchedule {
                 schedule = new BeanSchedule();
                 schedule.setId(rs.getLong("id"));
                 schedule.setDescription(rs.getString("description"));
+                schedule.setStatus(rs.getInt("status"));
             }
         }catch (SQLException e){
             Logger.getLogger(DaoSchedule.class.getName()).log(Level.SEVERE, "Error getOneSchedule", e);

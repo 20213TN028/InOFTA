@@ -8,7 +8,7 @@ public class MySQLConnection {
     public Connection connect(){
         try{
             final String USER = "root",
-                    PASSWORD="r00tintsql",
+                    PASSWORD= "r00tintsql",
                     DBNAME = "ofta",
                     TIMEZONE = "America/Mexico_City",
                     USESSL = "false",

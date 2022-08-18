@@ -2,6 +2,7 @@ package com.edu.utez.asesesoria.controller.session;
 
 import com.edu.utez.asesesoria.model.people.BeanPerson;
 import com.edu.utez.asesesoria.model.people.DaoPerson;
+import com.edu.utez.asesesoria.service.people.ServicePeople;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,13 +12,85 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet (name="validate", value = "/validate")
+/*@WebServlet (name="validate", value = "/validate")*/
+@WebServlet(name="ServletSession",
+    urlPatterns = {"/login", "/logout", "/singin"})
 
 public class ServletSession extends HttpServlet {
 
     HttpSession session;
+    String action, urlRedirect = "index.jsp";
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        action = request.getServletPath();
+        switch (action){
+            case "/singin":
+                urlRedirect = "/views/people/createStudent.jsp";
+                break;
+            default:
+                urlRedirect = "/index.jsp";
+                break;
+        }
+        request.getRequestDispatcher(urlRedirect).forward(request,response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        action = request.getServletPath();
+        switch (action){
+            case "/login":
+                String email = request.getParameter("email");
+                String pass = request.getParameter("pass");
+                DaoPerson person = new DaoPerson();
+                BeanPerson log = new ServicePeople().login(email, pass);
+                if (log.getId() != 0){
+                    session = request.getSession();
+                    session.setAttribute("email",log.getEmail());
+                    session.setAttribute("pass",log.getPassword());
+                    session.setAttribute("role", log.getRole());
+                    session.setAttribute("id", log.getId());
+                    System.out.println("In");
+                    if (log.getRole().equals("ADMIN")) {
+                        urlRedirect = "/get-people";
+                        System.out.println("In -> ADMIN");
+                    } else if (log.getRole().equals("DOCENTE")) {
+                        urlRedirect = "/get-instructor?id="+log.getId();
+                        System.out.println("In -> DOCENTE");
+                    }else {
+                        urlRedirect = "/get-student?id="+log.getId();
+                        System.out.println("In -> ESTUDIANTE");
+                    }
+                }else{
+                    urlRedirect = "/index.jsp";
+                }
+                break;
+            case "/logout":
+                session = request.getSession();
+                session.removeAttribute("email");
+                session.removeAttribute("pass");
+                session.removeAttribute("role");
+                session.removeAttribute("id");
+                session.invalidate();
+                urlRedirect = "/index.jsp";
+                System.out.println("Out!!");
+                break;
+            default:
+                session = request.getSession();
+                session.removeAttribute("email");
+                session.removeAttribute("pass");
+                session.removeAttribute("role");
+                session.removeAttribute(("id"));
+                session.invalidate();
+                urlRedirect = "/index.jsp";
+                break;
+        }
+        response.sendRedirect(request.getContextPath() + urlRedirect);
+    }
+
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String url = "index.jsp";
@@ -61,5 +134,5 @@ public class ServletSession extends HttpServlet {
         } else{
             request.getRequestDispatcher(url).forward(request, response);
         }
-    }
+    }*/
 }

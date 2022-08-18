@@ -3,10 +3,10 @@
 <html>
 <head>
     <title>ADMIN | Registrar Estudiante</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
-<jsp:include page="../layouts/navbarStudent.jsp"/>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12">
@@ -19,8 +19,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form class="row g-3 needs-validation" novalidate action="save-student" method="post">
-                                <div class="col-md-4">
+                            <form class="row g-3 needs-validation" id="form" novalidate action="save-student" method="post">
+                                <div class="col-md-4" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                            name="name">
@@ -28,7 +28,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="group-surname">
                                     <label for="validationCustom02" class="form-label fw-bold">Primer apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom02" value="" required
                                            name="surname">
@@ -43,7 +43,6 @@
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
-
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
@@ -74,6 +73,9 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class="form-message" id="form-message">
+                                    <p>Por favor rellena los campos del formulario</p>
+                                </div>
                                 <div class="col-12 text-end">
                                     <a href="index.jsp" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
@@ -88,4 +90,5 @@
 </div>
 <jsp:include page="../layouts/footer.jsp"/>
 </body>
+<script src="../../assets/js/validations.js"></script>
 </html>
