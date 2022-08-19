@@ -34,7 +34,7 @@
                                     <input type="hidden" name="id" id="id" value="<%= person.getId()%>">
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom02" class="form-label fw-bold">Primer apellido:</label>
+                                    <label for="validationCustom02" class="form-label fw-bold">Primer Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom02" value="<%= person.getSurname()%>" required
                                            name="surname">
                                     <div class="invalid-feedback">
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom03" class="form-label fw-bold">Segundo apellido:</label>
+                                    <label for="validationCustom03" class="form-label fw-bold">Segundo Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom03" value="<%= person.getLastname()%>"
                                            aria-describedby="inputGroupPrepend" required name="lastname">
                                     <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
+                                    <label for="validationCustom04" class="form-label fw-bold">Correo Electrónico:</label>
                                     <input type="email" class="form-control" id="validationCustom04" value="<%= person.getEmail()%>" required
                                            name="email">
                                     <div class="invalid-feedback">
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="validationCustom07" class="form-label fw-bold">Numero de empleado:</label>
+                                    <label for="validationCustom07" class="form-label fw-bold">Número de Empleado:</label>
                                     <input type="text" class="form-control" id="validationCustom07" value="<%= person.getEmployeeNumber()%>" required name="employeeNumber">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.

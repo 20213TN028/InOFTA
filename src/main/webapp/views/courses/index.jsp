@@ -23,7 +23,7 @@
                         <div class="col fw-bold">Listado de Talleres</div>
                         <div class="col text-end">
                             <a href="register-course" class="btn btn-outline-primary btn-sm">
-                                <i class="fas fa-user-plus"></i> AGREGAR TALLER
+                                <i class="fa-solid fa-backpack"></i> AGREGAR TALLER
                             </a>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                         <td><%= course.getType()%></td>
                                         <td><%= course.getPlaceName()%></td>
                                         <td><%= course.getUsersName()%></td>
-                                        <td><%= course.getScheName()%></td>
+                                        <td><%= course.getScheId()%></td>
                                         <td><%= course.getStatus() == 1 ? "Activo" : "Inactivo" %></td>
                                         <td>
                                             <a href="update-course?id=<%= course.getId()%>" class="btn btn-outline-warning btn-sm">EDITAR</a>
@@ -67,7 +67,7 @@
                                             <a class="btn btn-outline-danger btn-sm"
                                                data-bs-toggle="modal" data-bs-target="#deleteCourse-<%= course.getId()%>">DESHABILITAR</a>
                                             <%
-                                            }else {
+                                                }else {
                                             %>
                                             <a class="btn btn-outline-success btn-sm"
                                                data-bs-toggle="modal" data-bs-target="#enableCourse-<%= course.getId()%>">HABILITAR</a>

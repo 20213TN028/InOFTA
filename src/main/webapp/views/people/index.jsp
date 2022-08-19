@@ -40,10 +40,10 @@
                                     <thead>
                                     <th>#</th>
                                     <th>Nombre</th>
-                                    <th>Correo Electronico</th>
+                                    <th>Correo Electrónico</th>
                                     <th>Fecha de Nacimiento</th>
                                     <th>Rol</th>
-                                    <th>Numero de Empleado</th>
+                                    <th>Número de Empleado</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
                                     </thead>

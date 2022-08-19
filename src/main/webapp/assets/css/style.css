@@ -6,7 +6,7 @@
     border: 2px solid #bb2929 !important;
 }
 
-form -message {
+.form-message{
     height: 45px;
     line-height: 45px;
     text-align: center;
@@ -17,9 +17,9 @@ form -message {
 }
 
 .form-message-activo{
-    display: block;
+    display:block;
 }
 
 .invalid-feedback-active{
-    display: block;
+    display:block;
 }

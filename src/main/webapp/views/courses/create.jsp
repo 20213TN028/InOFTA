@@ -8,7 +8,6 @@
 <html>
 <head>
     <title>ADMIN | Registrar Taller</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
@@ -56,29 +55,6 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <!--<div class="col-md-4">
-                                    <label for="validationCustom03" class="form-label fw-bold">Segundo apellido:</label>
-                                    <input type="text" class="form-control" id="validationCustom03"
-                                           aria-describedby="inputGroupPrepend" required name="lastname">
-                                    <div class="invalid-feedback">
-                                        Campo obligatorio.
-                                    </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
-                                    <input type="email" class="form-control" id="validationCustom04" required name="email">
-                                    <div class="invalid-feedback">
-                                        Campo obligatorio.
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom05" class="form-label fw-bold">Contraseña:</label>
-                                    <input type="password" id="validationCustom05" class="form-control" required name="pass">
-                                    <div class="invalid-feedback">
-                                        Campo obligatorio.
-                                    </div>
-                                </div>-->
                                 <div class="col-6" id="group-scheId">
                                     <label for="validationCustom06" class="form-label fw-bold">Horario:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom06"
@@ -87,7 +63,7 @@
                                         <%
                                             for(BeanSchedule schedule : schedules){
                                         %>
-                                        <option name="scheName" value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
+                                        <option value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
                                         <%
                                             }
                                         %>
@@ -120,17 +96,15 @@
                                         <option selected>Selecciona una opción</option>
                                         <%
                                             for(BeanPerson person : people){
+                                                String fullName = person.getName()+" "+person.getLastname()+" "+person.getSurname();
                                         %>
-                                        <option name="userName" value="<%= person.getId()%>"><%= ""+person.getName()+" "+person.getLastname()+" "+person.getSurname()+""%></option>
+                                        <option name="userName" value="<%= person.getId()%>"><%= fullName%></option>
                                         <%
                                             }
                                         %>
                                     </select>
                                 </div>
                                 <hr>
-                                <div class="form-message" id="form-message">
-                                    <p>Por favor rellena los campos del formulario</p>
-                                </div>
                                 <div class="col-12 text-end">
                                     <a href="get-courses" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
@@ -145,5 +119,4 @@
 </div>
 <jsp:include page="../layouts/footer.jsp"/>
 </body>
-<script src="../../assets/js/validations.js"></script>
 </html>

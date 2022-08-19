@@ -7,7 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <title>ADMIN | Modificar Talleres</title>
+  <title>ADMIN | Modificar Datos de Talleres</title>
   <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
@@ -18,7 +18,7 @@
       <div class="card">
         <div class="card-header">
           <div class="row">
-            <div class="col text-center fw-bold">Formulario de Modificacion de Datos de Talleres</div>
+            <div class="col text-center fw-bold">Formulario de Modificación de Datos de Talleres</div>
           </div>
         </div>
         <%
@@ -45,43 +45,25 @@
                 </div>
                 <div class="col-md-4">
                   <label for="validationCustom02" class="form-label fw-bold">Tipo de Taller:</label>
-                  <input type="text" class="form-control" id="validationCustom02" value="<%= course.getType()%>" required
-                         name="type">
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom02"
+                          name="type">
+                    <option selected><%= course.getType()%></option>
+                    <option value="Deportivo">Deportivo</option>
+                    <option value="Cultural">Cultural</option>
+                  </select>
                   <div class="invalid-feedback">
                     Campo obligatorio.
                   </div>
                 </div>
-                <!--<div class="col-md-4">
-                    <label for="validationCustom03" class="form-label fw-bold">Segundo apellido:</label>
-                    <input type="text" class="form-control" id="validationCustom03"
-                           aria-describedby="inputGroupPrepend" required name="lastname">
-                    <div class="invalid-feedback">
-                        Campo obligatorio.
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
-                    <input type="email" class="form-control" id="validationCustom04" required name="email">
-                    <div class="invalid-feedback">
-                        Campo obligatorio.
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom05" class="form-label fw-bold">Horario:</label>
-                    <input type="password" id="validationCustom05" class="form-control" required name="pass">
-                    <div class="invalid-feedback">
-                        Campo obligatorio.
-                    </div>
-                </div>-->
                 <div class="col-6">
                   <label for="validationCustom06" class="form-label fw-bold">Horario:</label>
                   <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom06"
                           name="scheId">
-                    <option value="<%= course.getScheId()%>" selected><%= course.getScheName()%></option>
+                    <option value="<%= course.getScheId()%>" selected>¿Deseas cambiar selección?</option>
                     <%
                       for(BeanSchedule schedule : schedules){
                     %>
-                    <option name="scheName" value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
+                    <option value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
                     <%
                       }
                     %>
@@ -111,8 +93,9 @@
                     <option value="<%= course.getUsersId()%>" selected><%= course.getUsersName()%></option>
                     <%
                       for(BeanPerson person : people){
+                        String fullName = person.getName()+" "+person.getLastname()+" "+person.getSurname();
                     %>
-                    <option name="userName" value="<%= person.getId()%>"><%= person.getName()+" "+person.getLastname()+" "+person.getSurname()%></option>
+                    <option name="userName" value="<%= person.getId()%>"><%= fullName%></option>
                     <%
                       }
                     %>

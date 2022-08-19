@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>ADMIN | Registrar Docente</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
@@ -20,13 +19,13 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form class="row g-3 needs-validation"id="form" novalidate action="save-instructor" method="post">
+                            <form class="row g-3 needs-validation" id="form" novalidate action="save-instructor" method="post">
                                 <div class="col-md-4" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                     name="name">
                                     <div class="invalid-feedback">
-                                        Campo obligatorio.
+                                        Campo obligatorio. Se requiere de Solo Letras
                                     </div>
                                 </div>
                                 <div class="col-md-4" id="group-lastname">
@@ -47,7 +46,7 @@
 
                                 </div>
                                 <div class="col-md-6" id="group-email">
-                                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
+                                    <label for="validationCustom04" class="form-label fw-bold">Correo Electrónico:</label>
                                     <input type="email" class="form-control" id="validationCustom04" required name="email">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
@@ -55,7 +54,7 @@
                                 </div>
                                 <div class="col-md-6" id="group-password">
                                     <label for="validationCustom05" class="form-label fw-bold">Contraseña:</label>
-                                    <input type="password" id="validationCustom05" class="form-control" required name="password">
+                                    <input type="password" id="validationCustom05" class="form-control" required name="pass">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
@@ -68,16 +67,13 @@
                                     </div>
                                 </div>
                                 <div class="col-6" id="group-employeeNumber">
-                                    <label for="validationCustom07" class="form-label fw-bold">Numero de empleado:</label>
+                                    <label for="validationCustom07" class="form-label fw-bold">Número de Empleado:</label>
                                     <input type="text" class="form-control" id="validationCustom07" required name="employeeNumber">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="form-message" id="form-message">
-                                    <p>Por favor rellena los campos del formulario</p>
-                                </div>
                                 <div class="col-12 text-end">
                                     <a href="get-people" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit" id="liveToastBtn"><i class="fa fa-send"></i> Enviar</button>
@@ -97,7 +93,7 @@
             <strong class="me-auto">OFTA</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <%
+        <
             /*boolean result = (boolean) request.getAttribute("result");
             System.out.println(result);
             if (result) {
@@ -105,13 +101,13 @@
         <div class="toast-body">
             Registrado correctamente.
         </div>
-        <%
+        <
             }else {
         %>
         <div class="toast-body">
             Error.
         </div>
-        <%
+        <
             }*/
         %>
 
@@ -119,5 +115,4 @@
 </div>-->
 <jsp:include page="../layouts/footer.jsp"/>
 </body>
-<script src="../../assets/js/validations.js"></script>
 </html>

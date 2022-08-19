@@ -8,7 +8,7 @@
 %>
 <html>
 <head>
-    <title>OFTA | Inicio</title>
+    <title>OFTA | Perfil Docente</title>
     <jsp:include page="../../layouts/head.jsp"/>
 </head>
 <body>
@@ -21,13 +21,13 @@
         <div style="background-color:#f9f9f9; color: white;" class="row align-content-center mx-5">
             <div class="card-header" style="background-color:#009575; color: white;">
                 <div class="row">
-                    <center><div class="col fw-bold text-center">PERFIL DE ESTUDIANTE</div></center>
+                    <center><div class="col fw-bold text-center">PERFIL DE DOCENTE</div></center>
                     <div class="col text-end">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 border">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="...">
+                <div class="d-flex flex-column align-items-center text-center p-3 pt-5">
                     <span style="color:black;" class="font-weight-bold"><%= person.getName()+" "+person.getSurname()+" "+person.getLastname()%></span>
                     <span style="color: black;" class="text-black-50"><%= person.getEmail()%></span>
                 </div>

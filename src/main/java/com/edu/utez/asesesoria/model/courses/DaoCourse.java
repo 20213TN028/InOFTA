@@ -22,7 +22,7 @@ public class DaoCourse {
             pste = conn.prepareStatement("SELECT * FROM course \n" +
                     "INNER JOIN users ON course.users_id = users.id \n" +
                     "INNER JOIN place ON course.place_id = place.id \n" +
-                    "INNER JOIN schedules ON course.place_id = schedules.id;");
+                    "INNER JOIN schedule ON course.place_id = schedule.id;");
             rs = pste.executeQuery();
             while(rs.next()){
                 course = new BeanCourse();
@@ -35,7 +35,7 @@ public class DaoCourse {
                 course.setScheId(rs.getLong("schedules_id"));
                 course.setUsersName(rs.getString("users.name"));
                 course.setPlaceName(rs.getString("place.name"));
-                course.setScheName(rs.getString("schedules.description"));
+                course.setScheName(rs.getString("schedule.description"));
                 courses.add(course);
             }
         }catch (SQLException e){
@@ -50,7 +50,7 @@ public class DaoCourse {
         BeanCourse course = null;
         try {
             conn = new MySQLConnection().connect();
-            pste = conn.prepareStatement("SELECT * FROM course INNER JOIN users ON course.users_id = users.id INNER JOIN place ON course.place_id = place.id INNER JOIN schedules ON course.place_id = schedules.id WHERE course.id = ?;");
+            pste = conn.prepareStatement("SELECT * FROM course INNER JOIN users ON course.users_id = users.id INNER JOIN place ON course.place_id = place.id INNER JOIN schedule ON course.place_id = schedule.id WHERE course.id = ?;");
             pste.setLong(1, id);
             rs = pste.executeQuery();
             while(rs.next()){
@@ -64,7 +64,7 @@ public class DaoCourse {
                 course.setScheId(rs.getLong("schedules_id"));
                 course.setUsersName(rs.getString("users.name"));
                 course.setPlaceName(rs.getString("place.name"));
-                course.setScheName(rs.getString("schedules.description"));
+                course.setScheName(rs.getString("schedule.description"));
             }
         }catch (SQLException e){
             Logger.getLogger(DaoCourse.class.getName()).log(Level.SEVERE, "Error getOneCourse", e);

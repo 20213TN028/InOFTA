@@ -21,7 +21,7 @@ public class DaoSchedule {
         BeanSchedule schedule = null;
         try {
             conn = new MySQLConnection().connect();
-            pste = conn.prepareStatement("SELECT * FROM schedules;");
+            pste = conn.prepareStatement("SELECT * FROM schedule;");
             rs = pste.executeQuery();
             while(rs.next()){
                 schedule = new BeanSchedule();
@@ -42,7 +42,7 @@ public class DaoSchedule {
         BeanSchedule schedule = null;
         try {
             conn = new MySQLConnection().connect();
-            pste = conn.prepareStatement("SELECT * FROM schedules WHERE id=?;");
+            pste = conn.prepareStatement("SELECT * FROM schedule WHERE id=?;");
             pste.setLong(1, id);
             rs = pste.executeQuery();
             while(rs.next()){

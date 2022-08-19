@@ -22,8 +22,8 @@
                         <div class="row">
                             <div class="col fw-bold">Listado de Espacios</div>
                             <div class="col text-end">
-                                <a href="register-place" class="btn btn-outline-succes btn-sm">
-                                    <i class="fas fa-user-plus"></i> AGREGAR ESPACIO
+                                <a href="register-place" class="btn btn-outline-primary btn-sm">
+                                    <i class="fa-solid fa-location-plus"></i> AGREGAR ESPACIO
                                 </a>
                             </div>
                         </div>

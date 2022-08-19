@@ -29,7 +29,8 @@ const campos = {
     type: false,
     placeId: false,
     usersId: false,
-    quarterId: false
+    quarterId: false,
+    employeeNumber: false
 }
 
 // Funcion para validar el formulario completo
@@ -74,6 +75,9 @@ const validarFormulario = (e) => {
         case "quarterId":
             validarCampo(expresiones.numbers, e.target, 'quarterId')
             break;
+        case "employeeNumber":
+            validarCampo(expresiones.employeeNumber, e.target, 'employeeNumber')
+            break;
     }
 }
 
@@ -97,12 +101,16 @@ inputs.forEach((input) => {
 })
 
 // Evento para corroborar que a la hora de mandar el formulrio este este lleno
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    // Registro de Docentes y Estudiantes
+form.addEventListener('submit', () => {
+    //e.preventDefault()
+    // Registro de Estudiantes
     if (campos.name && campos.surname && campos.lastname && campos.email && campos.password && campos.matricula) {
         document.getElementById('form-message').classList.remove('form-message-activo')
         form.reset()
+        //Regsitro de Docentes
+    } else if (campos.name && campos.surname && campos.lastname && campos.email && campos.password && campos.employeeNumber){
+        document.getElementById('form-message').classList.remove('form-message-activo')
+        //form.reset()
         // Registro de Talleres
     } else if (campos.name && campos.type && campos.placeId && campos.usersId){
         document.getElementById('form-message').classList.remove('form-message-activo')

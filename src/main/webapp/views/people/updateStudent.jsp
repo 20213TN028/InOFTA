@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col text-center fw-bold">Formulario de Modificacion de Datos de Estudiantes</div>
+                        <div class="col text-center fw-bold">Formulario de Modificación de Datos de Estudiantes</div>
                     </div>
                 </div>
                 <div class="card-body" >
@@ -33,7 +33,7 @@
                                     <input type="hidden" name="id" id="id" value="<%= person.getId()%>">
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom02" class="form-label fw-bold">Primer apellido:</label>
+                                    <label for="validationCustom02" class="form-label fw-bold">Primer Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom02" value="<%= person.getLastname()%>" required
                                            name="surname">
                                     <div class="invalid-feedback">
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom03" class="form-label fw-bold">Segundo apellido:</label>
+                                    <label for="validationCustom03" class="form-label fw-bold">Segundo Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom03" value="<%= person.getSurname()%>"
                                            aria-describedby="inputGroupPrepend" required name="lastname">
                                     <div class="invalid-feedback">
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
+                                    <label for="validationCustom04" class="form-label fw-bold">Correo Electrónico:</label>
                                     <input type="email" class="form-control" id="validationCustom04" value="<%= person.getEmail()%>" required
                                            name="email">
                                     <div class="invalid-feedback">
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="validationCustom07" class="form-label fw-bold">Matricula:</label>
+                                    <label for="validationCustom07" class="form-label fw-bold">Matrícula:</label>
                                     <input type="text" class="form-control" id="validationCustom07" value="<%= person.getStudentID()%>" required
                                            name="studentId">
                                     <div class="invalid-feedback">

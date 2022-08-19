@@ -26,8 +26,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form class="row g-3 needs-validation" novalidate action="save-period" method="post">
-                                <div class="col-md-4">
+                            <form class="row g-3 needs-validation" id="form" novalidate action="save-period" method="post">
+                                <div class="col-md-4" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                            name="name">
@@ -35,7 +35,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="group-type">
                                     <label for="validationCustom02" class="form-label fw-bold">Tipo:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom02"
                                             name="type">
@@ -70,21 +70,21 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>-->
-                                <div class="col-6">
+                                <div class="col-6" id="group-startDate">
                                     <label for="validationCustom06" class="form-label fw-bold">Fecha de Inicio:</label>
                                     <input type="date" class="form-control" id="validationCustom06" required name="startDate">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="group-endDate">
                                     <label for="validationCustom07" class="form-label fw-bold">Fecha de Fin:</label>
                                     <input type="date" class="form-control" id="validationCustom07" required name="endDate">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="group-quarterId">
                                     <label for="validationCustom08" class="form-label fw-bold">Cuatrimestre:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom08"
                                             name="quarterId">
@@ -102,9 +102,6 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="form-message" id="form-message">
-                                    <p>Por favor rellena los campos del formulario</p>
-                                </div>
                                 <div class="col-12 text-end">
                                     <a href="get-periods" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>

@@ -112,7 +112,6 @@ public class ServletCourses extends HttpServlet {
                 String scheIdU = request.getParameter("scheId");
                 String idU = request.getParameter(("id"));
                 System.out.println(placeIdU+"  "+usersIdU);
-
                 try {
                     BeanCourse courseU = new BeanCourse();
                     courseU.setName(nameU);

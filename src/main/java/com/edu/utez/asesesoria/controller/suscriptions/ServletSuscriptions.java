@@ -44,5 +44,6 @@ public class ServletSuscriptions extends HttpServlet {
                 }
                 break;
         }
+        response.sendRedirect(request.getContextPath() + urlRedirect);
     }
 }

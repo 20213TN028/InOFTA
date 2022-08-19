@@ -1,6 +1,5 @@
 package com.edu.utez.asesesoria.model.suscriptions;
 
-import com.edu.utez.asesesoria.model.courses.DaoCourse;
 import com.edu.utez.asesesoria.utils.MySQLConnection;
 
 import java.sql.*;

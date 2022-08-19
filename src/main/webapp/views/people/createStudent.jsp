@@ -29,53 +29,50 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4" id="group-surname">
-                                    <label for="validationCustom02" class="form-label fw-bold">Primer apellido:</label>
+                                    <label for="validationCustom02" class="form-label fw-bold">Primer Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom02" value="" required
                                            name="surname">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="validationCustom03" class="form-label fw-bold">Segundo apellido:</label>
+                                <div class="col-md-4" id="group-lastname">
+                                    <label for="validationCustom03" class="form-label fw-bold">Segundo Apellido:</label>
                                     <input type="text" class="form-control" id="validationCustom03"
                                            aria-describedby="inputGroupPrepend" required name="lastname">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom04" class="form-label fw-bold">Correo electronico:</label>
+                                <div class="col-md-6" id="group-email">
+                                    <label for="validationCustom04" class="form-label fw-bold">Correo Electrónico:</label>
                                     <input type="email" class="form-control" id="validationCustom04" required name="email">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="group-password">
                                     <label for="validationCustom05" class="form-label fw-bold">Contraseña:</label>
                                     <input type="password" id="validationCustom05" class="form-control" required name="pass">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" id="group-birthDay">
                                     <label for="validationCustom06" class="form-label fw-bold">Fecha de Nacimiento:</label>
                                     <input type="date" class="form-control" id="validationCustom06" required name="birthDay">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <label for="validationCustom07" class="form-label fw-bold">Matricula:</label>
+                                <div class="col-6" id="group-studentId">
+                                    <label for="validationCustom07" class="form-label fw-bold">Matrícula:</label>
                                     <input type="text" class="form-control" id="validationCustom07" required name="studentId">
                                     <div class="invalid-feedback">
                                         Campo obligatorio.
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="form-message" id="form-message">
-                                    <p>Por favor rellena los campos del formulario</p>
-                                </div>
                                 <div class="col-12 text-end">
                                     <a href="index.jsp" class="btn btn-outline-danger btn-sm">Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>

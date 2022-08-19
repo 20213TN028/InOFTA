@@ -23,7 +23,7 @@
                         <div class="col fw-bold">Listado de Cuatrimestres</div>
                         <div class="col text-end">
                             <a href="register-quarter" class="btn btn-outline-primary btn-sm">
-                                <i class="fas fa-user-plus"></i> AGREGAR CUATRIMESTRE
+                                AGREGAR CUATRIMESTRE
                             </a>
                         </div>
                     </div>
