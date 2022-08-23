@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col">
                             <form class="row g-3 needs-validation" id="group-namep" novalidate action="register-place-confirm" method="post">
-                                <div class="col-md-6">
+                                <div class="col-md-6" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                            name="name">

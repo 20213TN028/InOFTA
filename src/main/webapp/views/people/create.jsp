@@ -52,7 +52,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-6" id="group-password">
+                                <div class="col-md-6" id="group-pass">
                                     <label for="validationCustom05" class="form-label fw-bold">Contraseña:</label>
                                     <input type="password" id="validationCustom05" class="form-control" required name="pass">
                                     <div class="invalid-feedback">

@@ -1,8 +1,12 @@
 package com.edu.utez.asesesoria.model.suscriptions;
 
+import com.edu.utez.asesesoria.model.courses.BeanCourse;
+import com.edu.utez.asesesoria.model.courses.DaoCourse;
 import com.edu.utez.asesesoria.utils.MySQLConnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +36,33 @@ public class DaoSuscription {
             closeConnection();
         }
         return susc;
+    }
+
+    public List<BeanSuscription> getGroup(long id){
+        List<BeanSuscription> suscs = new ArrayList<>();
+        BeanSuscription susc = null;
+        try {
+            conn = new MySQLConnection().connect();
+            pste = conn.prepareStatement("SELECT * FROM suscriptions \n" +
+                    "INNER JOIN users ON suscriptions.users_id=users.id \n" +
+                    "INNER JOIN course ON suscriptions.course_id=course.id \n" +
+                    "WHERE suscriptions.course_id = ?;");
+            pste.setLong(1, id);
+            rs = pste.executeQuery();
+            while(rs.next()){
+                susc = new BeanSuscription();
+                susc.setId(rs.getLong("suscriptions.id"));
+                susc.setStatus(rs.getInt("suscriptions.status"));
+                susc.setUsersId(rs.getLong("users_id"));
+                susc.setCourseId(rs.getLong("course_id"));
+                suscs.add(susc);
+            }
+        }catch (SQLException e){
+            Logger.getLogger(DaoSuscription.class.getName()).log(Level.SEVERE, "Error getAllGroups", e);
+        }finally{
+            closeConnection();
+        }
+        return suscs;
     }
 
     public boolean fillGroup(BeanSuscription susc){

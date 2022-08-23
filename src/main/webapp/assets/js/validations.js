@@ -8,7 +8,7 @@ const inputs = document.querySelectorAll('#form input')
 const expresiones = {
     textnumbers: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo /* * La vas a usar para las de tipo texto */
     text: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    password: /^.{4,12}$/, // 4 a 12 digitos.
+    pass: /^.{4,12}$/, // 4 a 12 digitos.
     email: /^[a-zA-Z0-9_.+-]+@utez\.edu\.mx$/, // Correo Institucional
     numbers: /^\d{1,10}$/, // 1 a 14 numeros.
     matricula: /^[0-9]{5}[a-z]{2}[0-9]{3}$/, // Validar una matricula
@@ -23,7 +23,7 @@ const campos = {
     surname: false,
     lastname: false,
     email: false,
-    password: false,
+    pass: false,
     //birth: false,
     matricula: false,
     type: false,
@@ -39,12 +39,6 @@ const validarFormulario = (e) => {
         case "name":
             validarCampo(expresiones.text, e.target, 'name')
             break;
-        case "nameq":
-            validarCampo(expresiones.text, e.target, 'nameq')
-            break;
-        case "namep":
-            validarCampo(expresiones.text, e.target, 'namep')
-            break;
         case "surname":
             validarCampo(expresiones.text, e.target, 'surname')
             break;
@@ -54,17 +48,14 @@ const validarFormulario = (e) => {
         case "email":
             validarCampo(expresiones.email, e.target, 'email')
             break;
-        case "password":
-            validarCampo(expresiones.password, e.target, 'password')
-            break;
-        // case "birth":
-        //     validarCampo(expresiones.textnumbers, e.target, 'birth')
-        //     break;
-        case "matricula":
-            validarCampo(expresiones.matricula, e.target, 'matricula')
+        case "pass":
+            validarCampo(expresiones.password, e.target, 'pass')
             break;
         case "type":
             validarCampo(expresiones.text, e.target, 'type')
+            break;
+        case "studentId":
+            validarCampo(expresiones.matricula, e.target, 'studentId')
             break;
         case "placeId":
             validarCampo(expresiones.numbers, e.target, 'placeId')
@@ -98,36 +89,4 @@ const validarCampo = (expresion, input, campo) => {
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario)
     input.addEventListener('blur', validarFormulario)
-})
-
-// Evento para corroborar que a la hora de mandar el formulrio este este lleno
-form.addEventListener('submit', () => {
-    //e.preventDefault()
-    // Registro de Estudiantes
-    if (campos.name && campos.surname && campos.lastname && campos.email && campos.password && campos.matricula) {
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        form.reset()
-        //Regsitro de Docentes
-    } else if (campos.name && campos.surname && campos.lastname && campos.email && campos.password && campos.employeeNumber){
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        //form.reset()
-        // Registro de Talleres
-    } else if (campos.name && campos.type && campos.placeId && campos.usersId){
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        form.reset()
-        // Registro de Periodos
-    } else if (campos.name && campos.type && campos.quarterId){
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        form.reset()
-        // Registro de Espacios
-    } else if (campos.namep){
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        form.reset()
-        // Registro de Cuatri
-    } else if (campos.nameq){
-        document.getElementById('form-message').classList.remove('form-message-activo')
-        form.reset()
-    }else {
-        document.getElementById('form-message').classList.add('form-message-activo')
-    }
 })

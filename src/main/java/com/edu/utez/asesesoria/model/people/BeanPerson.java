@@ -14,6 +14,7 @@ public class BeanPerson {
     private String studentID;
     private String role;
     private int status;
+    private long couseId;
 
     public BeanPerson() {
     }
@@ -122,5 +123,13 @@ public class BeanPerson {
     @Override
     public String toString() {
         return super.toString();
+    }
+
+    public long getCouseId() {
+        return couseId;
+    }
+
+    public void setCouseId(long couseId) {
+        this.couseId = couseId;
     }
 }

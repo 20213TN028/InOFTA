@@ -7,13 +7,13 @@ import java.sql.SQLException;
 public class MySQLConnection {
     public Connection connect(){
         try{
-            final String USER = "admin",
-                    PASSWORD= "Root4Ws2022",
+            final String USER = "root",
+                    PASSWORD="r00tintsql",
                     DBNAME = "ofta",
                     TIMEZONE = "America/Mexico_City",
                     USESSL = "false",
                     PUBLICKEY= "true",
-                    HOST ="dbs-integra-2022.crifpezkzwbz.us-east-1.rds.amazonaws.com",
+                    HOST ="localhost",
                     PORT = "3306";
             String dataSource = String.format("jdbc:mysql://%s:%s/%s?user=%s&password=%s&serverTimezone=%s&useSSL=%s&allowPublicKeyRetrieval=%s",
                     HOST,PORT,DBNAME,USER,PASSWORD,TIMEZONE,USESSL,PUBLICKEY);

@@ -3,86 +3,210 @@
 <html>
 <head>
     <title>OFTA | Iniciar Sesion</title>
-    <jsp:include page="/views/layouts/head.jsp"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<!--<div class="container-sm">
-<form action="validate" method="post">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Correo Electronico:</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
-    </div>
-    <a href="register-student" type="button" class="btn btn-primary btn-sm">Registrarse</a>
-    <button type="submit" class="btn btn-primary" name="action" value="start">Submit</button>
-</form>
-</div>-->
-
-<!--<style>
-    .bg-image-vertical {
-        position: relative;
-        overflow: hidden;
+<style>
+    body {
+        margin: 0;
+        padding: 0;
         background-repeat: no-repeat;
-        background-position: right center;
-        background-size: auto 100%;
+        background-size: cover;
+        background-image:url(images/UTEZ_Carrusel2.jpg);
+        background-color: gray;
+        height: 100vh;
+        overflow: hidden;
     }
 
-    @media (min-width: 1025px) {
-        .h-custom-2 {
-            height: 100%;
-        }
+    .login {
+        position: absolute;
+        top: 73%;
+        left: 22%;
+        transform: translate(-50%, -50%);
+        width: 25vw;
+        background: gray;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        -o-border-radius: 6px;
     }
-</style>-->
+
+    .centro {
+        position: absolute;
+        top: 73%;
+        left: 22%;
+        transform: translate(-50%, -50%);
+        height: 980px;
+        width: 600px;
+        background: whitesmoke;
+        border-radius: 2px;
+        background: #fcfcfc;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+    }
+
+    .centro img {
+        /* text-align: center; */
+        padding:  13px 97px 10px;
+        border-bottom: 1px solid rgb(0, 0, 0);
+    }
+
+    .centro form {
+        padding: 39px 27px;
+        box-sizing: border-box;
+    }
+
+    form .campotexto {
+        position: relative;
+        border-bottom: 2px solid #000000;
+        margin: 30px 0;
+    }
+
+    .campotexto input {
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .campotexto label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: #000000;
+        transform: translateY(-50%);
+        font-size: 16px;
+        pointer-events: none;
+    }
+
+    .campotexto span::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 0px;
+        height: 2px;
+        background: #0914ac;
+        transition: .5s;
+    }
+
+    .campotexto input:focus~label,
+    .campotexto input:valid~label {
+        top: -5px;
+        color: #000000;
+    }
+
+    .campotexto input:focus~span::before,
+    .campotexto input:valid~span::before {
+        width: 100%;
+    }
+
+    .pass {
+        margin: -5px 0 20px 5px;
+        color: #000000;
+        cursor: pointer;
+        margin-left: 120px;
+    }
+
+    .pass:hover {
+        text-decoration: underline;
+    }
+
+    input[type="submit"] {
+        width: 68%;
+        height: 62px;
+        margin: 30px 59px;
+        border: 1px solid;
+        margin-top: 4%;
+        border-radius: 25px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        -webkit-border-radius: 25px;
+    }
+
+    input[type="submit"]:hover {
+        background: #1C3258;
+        color: #ffffff;
+        transition: .5s;
+    }
+
+
+    .registrolink{
+        margin: 30px 0;
+        margin-top: 14px;
+        text-align: center;
+        font-size: 16px;
+        color: #000000;
+        text-align: center;
+        color: #000000;
+        margin-right: 60px;
+    }
+
+    .registrolink a{
+        color: #000ed4;
+        text-decoration: none;
+    }
+
+    .registrolink a:hover{
+        text-decoration: underline;
+    }
+
+    .HomeAbout {
+        width: 100vw;
+        height: 25vh;
+    }
+    .logoutez{
+        height: 210px;
+        margin-left:-2px;
+    }
+
+    .picture{
+        margin-left: 1%;
+    }
+
+    .fondo{
+        width: 99vw;
+        height: 50vw;
+        margin-left: 263px;
+    }
+</style>
 
 <section class="vh-100">
-    <div class="container text-center mt-5 px-5">
-        <div class="container text-center mt-3 px-5">
-            <div class="container text-center px-5">
-                <div class="container text-center px-5">
-                    <div class="container text-center px-5">
-                        <div class="container text-center px-5">
-                            <div class="container text-center px-5">
-                                <div class="container text-center pt-3 px-5 border">
-                                    <div class="col-md-12 text-black">
-                                        <div class="align-items-center">
-                                            <form novalidate action="login" method="post">
-                                                <button class="btn btn-outline-success"><span class="h1 fw-bold">OFTA</span></button>
-                                                <h3 class="fw-normal mt-3 mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesión</h3>
 
-                                                <div class="form-outline mb-4">
-                                                    <input type="email" id="form2Example18" class="form-control form-control-lg" name="email"/>
-                                                    <label class="form-label" for="form2Example18">Correo Electrónico</label>
-                                                </div>
-
-                                                <div class="form-outline mb-4">
-                                                    <input type="password" id="form2Example28" class="form-control form-control-lg" name="pass"/>
-                                                    <label class="form-label" for="form2Example28">Contraseña</label>
-                                                </div>
-
-                                                <div class="pt-1 mb-4">
-                                                    <button class="btn btn-info btn-lg btn-block" type="submit">Iniciar Sesión</button>
-                                                </div>
-
-                                                <p>¿Eres estudiante? <a href="register-student" class="link-info">Registrate aquí</a></p>
-
-                                            </form>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="contenedor">
+        <div class="centro">
+            <img  class="logoutez" src="views/images/UTEZ%20COLOR.svg">
+            <form novalidate action="login" method="post">
+                <div class="campotexto">
+                    <input type="email" id="form2Example18" class="form-control form-control-lg" name="emaill"/>
+                    <span></span>
+                    <label >Correo Institucional</label>
                 </div>
-            </div>
+                <div class="campotexto">
+                    <input type="password" id="form2Example28" class="form-control form-control-lg" name="passs"/>
+                    <span></span>
+                    <label>Contraseña</label>
+                </div>
+                <!-- <div class="pass">Olvidaste la Contraseña?</div>--->
+                <input name="submit" type="submit" value="Iniciar Sesión">
+                <div class="registrolink">
+                    ¿Eres estudiante? <a href="register-student">Registrate Aquí</a>
+                </div>
+            </form>
         </div>
     </div>
+    <div>
+        <picture class="picture">
+            <img class="fondo"  src="views/images/UTEZ_Carrusel2.jpg">
+        </picture>
+    </div>
+
 </section>
-<jsp:include page="/views/layouts/footer.jsp"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -39,19 +39,24 @@ public class ServletSession extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
         action = request.getServletPath();
         switch (action){
             case "/login":
-                String email = request.getParameter("email");
-                String pass = request.getParameter("pass");
+                String email = request.getParameter("emaill");
+                String pass = request.getParameter("passs");
                 DaoPerson person = new DaoPerson();
                 BeanPerson log = new ServicePeople().login(email, pass);
+                System.out.println(email+"   "+pass+"   "+log.getEmail()+"   "+log.getPassword()+"   "+log.getId());
                 if (log.getId() != 0){
+                    System.out.println("Encontrado");
                     session = request.getSession();
                     session.setAttribute("email",log.getEmail());
                     session.setAttribute("pass",log.getPassword());
                     session.setAttribute("role", log.getRole());
                     session.setAttribute("id", log.getId());
+                    session.setAttribute("couseId", log.getCouseId());
+                    System.out.println("couseSS: "+log.getCouseId());
                     System.out.println("In");
                     if (log.getRole().equals("ADMIN")) {
                         urlRedirect = "/get-people";
@@ -64,6 +69,7 @@ public class ServletSession extends HttpServlet {
                         System.out.println("In -> ESTUDIANTE");
                     }
                 }else{
+                    System.out.println("No encontrado");
                     urlRedirect = "/index.jsp";
                 }
                 break;
@@ -73,6 +79,7 @@ public class ServletSession extends HttpServlet {
                 session.removeAttribute("pass");
                 session.removeAttribute("role");
                 session.removeAttribute("id");
+                session.removeAttribute("couseId");
                 session.invalidate();
                 urlRedirect = "/index.jsp";
                 System.out.println("Out!!");
@@ -82,6 +89,7 @@ public class ServletSession extends HttpServlet {
                 session.removeAttribute("email");
                 session.removeAttribute("pass");
                 session.removeAttribute("role");
+                session.removeAttribute("couseId");
                 session.removeAttribute(("id"));
                 session.invalidate();
                 urlRedirect = "/index.jsp";

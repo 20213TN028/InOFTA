@@ -41,6 +41,7 @@ public class ServletCourses extends HttpServlet {
                 idO = (idO == null) ? "0" : idO;
                 request.setAttribute("courses", new ServiceCourses().getAll());
                 request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idO)));
+                System.out.println(idO);
                 urlRedirect = "/views/people/users/offers.jsp";
                 break;
             case "/register-course":
@@ -80,6 +81,7 @@ public class ServletCourses extends HttpServlet {
                 String placeName = request.getParameter("placeName");
                 String userName = request.getParameter("userName");
                 String scheName = request.getParameter("scheName");
+                System.out.println(placeId+" "+usersId+" "+scheId);
                 try {
                     BeanCourse course = new BeanCourse();
                     course.setName(name);
