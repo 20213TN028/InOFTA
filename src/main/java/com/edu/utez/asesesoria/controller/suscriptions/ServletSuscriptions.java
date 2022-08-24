@@ -16,7 +16,8 @@ import java.io.IOException;
 @WebServlet(name = "ServletSuscriptions",
         urlPatterns = {"/get-group",
                 "/inscribe",
-                "/release"
+                "/release",
+                "/get-profesor-group"
         })
 public class ServletSuscriptions extends HttpServlet {
     String action, urlRedirect = "/get-offers";
@@ -26,16 +27,20 @@ public class ServletSuscriptions extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         action = request.getServletPath();
         switch (action) {
-            case "/get-group":
-                String id = request.getParameter("idP");
-                id = (id == null) ? "0" : id;
-                System.out.println("id: "+id);
+            case "/get-profesor-group":
 
-                String idP = request.getParameter("idC");
+
+                break;
+            case "/get-group":
+                String idP = request.getParameter("idP");
                 idP = (idP == null) ? "0" : idP;
-                System.out.println("idP: "+idP);
-                request.setAttribute("suscs", new ServiceSuscriptions().getGroup(Long.parseLong(idP)));
-                request.setAttribute("course", new ServiceCourses().getOne(Long.parseLong(id)));
+                System.out.println("id: "+idP);
+                BeanCourse course = new ServiceCourses().findIdCourse(Long.parseLong(idP));
+                long idC = course.getId();
+                System.out.println("ID COURSE: "+idC);
+
+                request.setAttribute("suscs", new ServiceSuscriptions().getGroup(idC));
+                request.setAttribute("course", new ServiceCourses().getOne(idC));
                 request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idP)));
                 urlRedirect = "/views/people/users/group.jsp";
                 break;
@@ -53,9 +58,9 @@ public class ServletSuscriptions extends HttpServlet {
         action = request.getServletPath();
         switch (action){
             case "/inscribe":
-                String usersId = request.getParameter("id");
+                String usersId = request.getParameter("usersId");
                 String courseId = request.getParameter("courseId");
-                System.out.println(" "+ courseId);
+                System.out.println(usersId+"       "+ courseId);
                 try {
                     BeanSuscription susc = new BeanSuscription();
                     susc.setUsersId(Long.parseLong(usersId));

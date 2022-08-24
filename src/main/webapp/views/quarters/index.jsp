@@ -23,7 +23,7 @@
                         <div class="col fw-bold">Listado de Cuatrimestres</div>
                         <div class="col text-end">
                             <a href="register-quarter" class="btn btn-outline-primary btn-sm">
-                                AGREGAR CUATRIMESTRE
+                                <i class="fa-solid fa-calendar-plus"></i> AGREGAR CUATRIMESTRE
                             </a>
                         </div>
                     </div>
@@ -56,17 +56,17 @@
                                         <td><%= quarter.getEndDate()%></td>
                                         <td><%= quarter.getStatus() == 1 ? "Activo" : "Inactivo" %></td>
                                         <td>
-                                            <a href="update-quarter?id=<%= quarter.getId()%>" class="btn btn-outline-warning btn-sm">EDITAR</a>
+                                            <a href="update-quarter?id=<%= quarter.getId()%>" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i> EDITAR</a>
                                             <%
                                                 if (quarter.getStatus() == 1) {
                                             %>
                                             <a class="btn btn-outline-danger btn-sm"
-                                               data-bs-toggle="modal" data-bs-target="#deleteQuarter-<%= quarter.getId()%>">DESHABILITAR</a>
+                                               data-bs-toggle="modal" data-bs-target="#deleteQuarter-<%= quarter.getId()%>"><i class="fa-solid fa-circle-exclamation"></i> DESHABILITAR</a>
                                             <%
                                             }else {
                                             %>
                                             <a class="btn btn-outline-success btn-sm"
-                                               data-bs-toggle="modal" data-bs-target="#enableQuarter-<%= quarter.getId()%>">HABILITAR</a>
+                                               data-bs-toggle="modal" data-bs-target="#enableQuarter-<%= quarter.getId()%>"><i class="fa-solid fa-circle-check"></i> HABILITAR</a>
                                             <%
                                                 }
                                             %>

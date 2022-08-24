@@ -60,17 +60,17 @@
                                             <td><%= person.getEmployeeNumber() %></td>
                                             <td><%= person.getStatus() == 1 ? "Activo" : "Inactivo" %></td>
                                             <td>
-                                                <a href="update-instructor?id=<%= person.getId()%>" class="btn btn-outline-warning btn-sm">EDITAR</a>
+                                                <a href="update-instructor?id=<%= person.getId()%>" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i> EDITAR</a>
                                                 <%
                                                     if (person.getStatus() == 1) {
                                                 %>
                                                 <a class="btn btn-outline-danger btn-sm"
-                                                   data-bs-toggle="modal" data-bs-target="#deletePerson-<%= person.getId()%>">DESHABILITAR</a>
+                                                   data-bs-toggle="modal" data-bs-target="#deletePerson-<%= person.getId()%>"><i class="fa-solid fa-circle-exclamation"></i> DESHABILITAR</a>
                                                 <%
                                                     }else {
                                                 %>
                                                 <a class="btn btn-outline-success btn-sm"
-                                                   data-bs-toggle="modal" data-bs-target="#enablePerson-<%= person.getId()%>">HABILITAR</a>
+                                                   data-bs-toggle="modal" data-bs-target="#enablePerson-<%= person.getId()%>"><i class="fa-solid fa-circle-check"></i> HABILITAR</a>
                                                 <%
                                                     }
                                                 %>

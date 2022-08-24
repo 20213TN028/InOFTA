@@ -2,8 +2,10 @@ package com.edu.utez.asesesoria.model.courses;
 
 import com.edu.utez.asesesoria.utils.MySQLConnection;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,10 +35,14 @@ public class DaoCourse {
                 course.setUsersId(rs.getLong("users_id"));
                 course.setPlaceId(rs.getLong("place_id"));
                 course.setScheId(rs.getLong("schedules_id"));
+                byte[] image = rs.getBytes("image");
+                String imageStr = Base64.getEncoder().encodeToString(image);
+                course.setImage(imageStr);
                 course.setUsersName(rs.getString("users.name"));
                 course.setPlaceName(rs.getString("place.name"));
                 course.setScheName(rs.getString("schedule.description"));
                 courses.add(course);
+               // System.out.println(course.toString());
             }
         }catch (SQLException e){
             Logger.getLogger(DaoCourse.class.getName()).log(Level.SEVERE, "Error getAllCourses", e);
@@ -74,17 +80,18 @@ public class DaoCourse {
         return course;
     }
 
-    public boolean save(BeanCourse course){
+    public boolean save(BeanCourse course, InputStream image){
         try{
             conn = new MySQLConnection().connect();
-            pste = conn.prepareStatement("INSERT INTO course (name, type, status, place_id, users_id, schedules_id) " +
-                    "VALUES (?, ?, ?, ?, ?, ?)");
+            pste = conn.prepareStatement("INSERT INTO course (name, type, status, place_id, users_id, schedules_id, image) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)");
             pste.setString(1, course.getName());
             pste.setString(2, course.getType());
             pste.setInt(3, 1);
             pste.setLong(4, course.getPlaceId());
             pste.setLong(5, course.getUsersId());
             pste.setLong(6, course.getScheId());
+            pste.setBlob(7, image);
             return pste.executeUpdate() == 1;
         }catch (SQLException e){
             Logger.getLogger(DaoCourse.class.getName()).log(Level.SEVERE, "Error saveCourse", e);
@@ -162,5 +169,29 @@ public class DaoCourse {
         }catch (SQLException e){
 
         }
+    }
+
+
+    /*public static void main(String[] args) {
+        new DaoCourse().getOne();
+    }*/
+
+    public BeanCourse findIdCourse (long id){
+        BeanCourse course = null;
+        try {
+            conn = new MySQLConnection().connect();
+            pste = conn.prepareStatement("SELECT * FROM  users INNER JOIN course ON course.users_id = users.id WHERE course.users_id = ?;");
+            pste.setLong(1, id);
+            rs = pste.executeQuery();
+            while(rs.next()){
+                course = new BeanCourse();
+                course.setId(rs.getLong("course.id"));
+            }
+        }catch (SQLException e){
+            Logger.getLogger(DaoCourse.class.getName()).log(Level.SEVERE, "Error getOneCourse", e);
+        }finally{
+            closeConnection();
+        }
+        return course;
     }
 }

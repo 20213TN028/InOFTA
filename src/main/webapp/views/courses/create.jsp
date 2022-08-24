@@ -22,8 +22,6 @@
                     </div>
                 </div>
                 <%
-                    List<BeanCourse> courses
-                            = (List<BeanCourse>) request.getAttribute("courses");
                     List<BeanPlace> places
                             = (List<BeanPlace>) request.getAttribute("places");
                     List<BeanPerson> people
@@ -34,8 +32,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <form class="row g-3 needs-validation" id="form" novalidate action="save-course" method="post">
-                                <div class="col-md-4" id="group-name">
+                            <form class="row g-3 needs-validation" id="form" novalidate action="save-course" method="post" enctype="multipart/form-data">
+                                <div class="col-md-6" id="group-name">
                                     <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                                     <input type="text" class="form-control" id="validationCustom01" value="" required
                                            name="name">
@@ -43,7 +41,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-4" id="group-type">
+                                <div class="col-md-6" id="group-type">
                                     <label for="validationCustom02" class="form-label fw-bold">Tipo de Taller:</label>
                                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom02"
                                     name="type">
@@ -63,7 +61,7 @@
                                         <%
                                             for(BeanSchedule schedule : schedules){
                                         %>
-                                        <option value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
+                                        <option name="scheName" value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
                                         <%
                                             }
                                         %>
@@ -104,9 +102,13 @@
                                         %>
                                     </select>
                                 </div>
+                                <div class="col-md-6">
+                                    <label for="formFile" class="form-label">Ingresa una imagen</label>
+                                    <input class="form-control" type="file" id="formFile" name="image">
+                                </div>
                                 <hr>
                                 <div class="col-12 text-end">
-                                    <a href="get-courses" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                                    <a href="get-courses" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-ban"></i> Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
                                 </div>
                             </form>

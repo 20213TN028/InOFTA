@@ -52,10 +52,12 @@ public class DaoSuscription {
             while(rs.next()){
                 susc = new BeanSuscription();
                 susc.setId(rs.getLong("suscriptions.id"));
-                susc.setStatus(rs.getInt("suscriptions.status"));
-                susc.setUsersId(rs.getLong("users_id"));
-                susc.setCourseId(rs.getLong("course_id"));
+                susc.setStatus(rs.getInt("users.status"));
+                susc.setNameStudent(rs.getString("users.name"));
+                susc.setSurnameStudent(rs.getString("users.surname"));
+                susc.setLastnameStudent(rs.getString("users.lastname"));
                 suscs.add(susc);
+                System.out.println("Status Student: "+susc.getStatusStudent());
             }
         }catch (SQLException e){
             Logger.getLogger(DaoSuscription.class.getName()).log(Level.SEVERE, "Error getAllGroups", e);
@@ -80,6 +82,25 @@ public class DaoSuscription {
             closeConnection();
         }
         return false;
+    }
+
+    public BeanSuscription findUserStatus(long idCourse){
+        BeanSuscription susc = null;
+        try {
+            conn = new MySQLConnection().connect();
+            pste = conn.prepareStatement("SELECT * FROM suscriptions INNER JOIN users ON suscriptions.users_id = users.id WHERE suscriptions.course_id = ? AND users.role = 'ESTUDIANTE';");
+            pste.setLong(1, idCourse);
+            rs = pste.executeQuery();
+            while(rs.next()){
+                susc = new BeanSuscription();
+                susc.setStatusStudent(rs.getInt("users.status"));
+            }
+        }catch (SQLException e){
+            Logger.getLogger(DaoSuscription.class.getName()).log(Level.SEVERE, "Error findUserStudents", e);
+        }finally{
+            closeConnection();
+        }
+        return susc;
     }
 
     public void closeConnection(){

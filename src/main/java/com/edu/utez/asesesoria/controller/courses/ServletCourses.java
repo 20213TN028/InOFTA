@@ -7,12 +7,16 @@ import com.edu.utez.asesesoria.service.places.ServicePlaces;
 import com.edu.utez.asesesoria.service.schedules.ServiceSchedules;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
 
+@MultipartConfig(maxFileSize = 1024*1024*100)
 @WebServlet(name = "ServletCourse",
         urlPatterns = {"/get-courses",
                 "/register-course",
@@ -41,11 +45,10 @@ public class ServletCourses extends HttpServlet {
                 idO = (idO == null) ? "0" : idO;
                 request.setAttribute("courses", new ServiceCourses().getAll());
                 request.setAttribute("person", new ServicePeople().getOne(Long.parseLong(idO)));
-                System.out.println(idO);
+                System.out.println("Person ID to offers: "+idO);
                 urlRedirect = "/views/people/users/offers.jsp";
                 break;
             case "/register-course":
-                request.setAttribute("courses", new ServiceCourses().getAll());
                 request.setAttribute("places", new ServicePlaces().getAll());
                 request.setAttribute("people", new ServicePeople().getAll());
                 request.setAttribute("schedules", new ServiceSchedules().getAll());
@@ -78,10 +81,13 @@ public class ServletCourses extends HttpServlet {
                 String placeId = request.getParameter("placeId");
                 String usersId = request.getParameter("usersId");
                 String scheId = request.getParameter("scheId");
+                Part filePart = request.getPart("image");
+                InputStream image = filePart.getInputStream();
                 String placeName = request.getParameter("placeName");
                 String userName = request.getParameter("userName");
                 String scheName = request.getParameter("scheName");
                 System.out.println(placeId+" "+usersId+" "+scheId);
+                System.out.println(placeName+" "+userName+" "+scheName);
                 try {
                     BeanCourse course = new BeanCourse();
                     course.setName(name);
@@ -92,12 +98,8 @@ public class ServletCourses extends HttpServlet {
                     course.setPlaceName(placeName);
                     course.setUsersName(userName);
                     course.setScheName(scheName);
-                    boolean result = new ServiceCourses().save(course);
-                    System.out.println("Result: "+result);
+                    boolean result = new ServiceCourses().save(course, image);
                     if (result) {
-                        System.out.println(placeId+" "+placeName);
-                        System.out.println(usersId+" "+userName);
-                        System.out.println(scheId+" "+scheName);
                         urlRedirect = "/get-courses?message=Registrado correctamente&result=true&status=200";
                     } else {
                         urlRedirect = "/get-courses?message=Hubo un error&result=false&status=400";
@@ -113,7 +115,6 @@ public class ServletCourses extends HttpServlet {
                 String usersIdU = request.getParameter("usersId");
                 String scheIdU = request.getParameter("scheId");
                 String idU = request.getParameter(("id"));
-                System.out.println(placeIdU+"  "+usersIdU);
                 try {
                     BeanCourse courseU = new BeanCourse();
                     courseU.setName(nameU);
@@ -124,7 +125,6 @@ public class ServletCourses extends HttpServlet {
                     courseU.setId(Long.parseLong(idU));
                     System.out.println("placeId: "+placeIdU+"/usersId: "+usersIdU+"/scheId: "+scheIdU);
                     boolean resultU = new ServiceCourses().update(courseU);
-                    System.out.println(placeIdU+"  "+usersIdU);
                     if (resultU) {
                         urlRedirect = "/get-courses?message=Modificado correctamente&result=true&status=200";
                     } else {

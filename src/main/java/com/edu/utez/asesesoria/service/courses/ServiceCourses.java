@@ -3,6 +3,7 @@ package com.edu.utez.asesesoria.service.courses;
 import com.edu.utez.asesesoria.model.courses.DaoCourse;
 import com.edu.utez.asesesoria.model.courses.BeanCourse;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class ServiceCourses {
@@ -13,8 +14,8 @@ public class ServiceCourses {
     public BeanCourse getOne(long id){
         return daoCourse.getOne(id);
     }
-    public boolean save(BeanCourse course){
-        return daoCourse.save(course);
+    public boolean save(BeanCourse course, InputStream image){
+        return daoCourse.save(course, image);
     }
     public boolean update(BeanCourse course){
         return daoCourse.update(course);
@@ -25,4 +26,5 @@ public class ServiceCourses {
     public boolean enable(BeanCourse course){
         return daoCourse.enable(course);
     }
+    public BeanCourse findIdCourse (long id){return daoCourse.findIdCourse(id);}
 }

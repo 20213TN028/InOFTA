@@ -31,7 +31,7 @@
                                 </div>
                                 <hr>
                                 <div class="col-12 text-end">
-                                    <a href="get-places" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                                    <a href="get-places" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-ban"></i> Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
                                 </div>
                             </form>

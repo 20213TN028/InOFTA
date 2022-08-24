@@ -34,7 +34,7 @@
           <div class="row">
             <div class="col">
               <form class="row g-3 needs-validation" novalidate action="update-course-confirm" method="post">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label for="validationCustom01" class="form-label fw-bold">Nombre:</label>
                   <input type="text" class="form-control" id="validationCustom01" value="<%= course.getName()%>" required
                          name="name">
@@ -43,7 +43,7 @@
                   </div>
                   <input type="hidden" name="id" id="id" value="<%= course.getId()%>">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label for="validationCustom02" class="form-label fw-bold">Tipo de Taller:</label>
                   <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom02"
                           name="type">
@@ -55,7 +55,7 @@
                     Campo obligatorio.
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <label for="validationCustom06" class="form-label fw-bold">Horario:</label>
                   <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom06"
                           name="scheId">
@@ -63,7 +63,7 @@
                     <%
                       for(BeanSchedule schedule : schedules){
                     %>
-                    <option value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
+                    <option name="scheName" value="<%= schedule.getId()%>"><%= schedule.getDescription()%></option>
                     <%
                       }
                     %>
@@ -72,7 +72,7 @@
                     Campo obligatorio.
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <label for="validationCustom03" class="form-label fw-bold">Espacio:</label>
                   <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom03"
                           name="placeId">
@@ -86,7 +86,7 @@
                     %>
                   </select>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <label for="validationCustom08" class="form-label fw-bold">Docente:</label>
                   <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="validationCustom08"
                           name="usersId">
@@ -103,7 +103,7 @@
                 </div>
                 <hr>
                 <div class="col-12 text-end">
-                  <a href="get-courses" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                  <a href="get-courses" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-ban"></i> Cancelar</a>
                   <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
                 </div>
               </form>

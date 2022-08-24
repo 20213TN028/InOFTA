@@ -28,8 +28,9 @@
             </div>
             <div class="col-md-4 border">
                 <div class="d-flex flex-column align-items-center text-center p-3 pt-5">
-                    <span style="color:black;" class="font-weight-bold"><%= person.getName()+" "+person.getSurname()+" "+person.getLastname()%></span>
+                    <span style="color:black;" class="font-weight-bold"><%= person.getName()+" "+person.getLastname()+" "+person.getSurname()%></span>
                     <span style="color: black;" class="text-black-50"><%= person.getEmail()%></span>
+                    <img src="/views/images/docente.jfif" class="rounded-circle mt-5" style="width: 80px;" alt="Avatar" />
                 </div>
             </div>
             <div class="col-md-8 border">
@@ -38,8 +39,8 @@
                     <div class="row mt-2">
                         <input type="hidden" name="id" id="id" value="<%= person.getId()%>">
                         <div class="col-md-12"><label style="color: black;" class="labels">Nombre(s)</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getName()%>" readonly></div>
-                        <div class="col-md-6"><label style="color: black;" class="labels">Apellido Paterno</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getSurname()%>" readonly></div>
-                        <div class="col-md-6"><label style="color: black;" class="labels">Apellido Materno</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getLastname()%>" readonly></div>
+                        <div class="col-md-6"><label style="color: black;" class="labels">Apellido Paterno</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getLastname()%>" readonly></div>
+                        <div class="col-md-6"><label style="color: black;" class="labels">Apellido Materno</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getSurname()%>" readonly></div>
                         <div class="col-md-6"><label style="color: black;" class="labels">Número de Empleado</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getEmployeeNumber()%>" readonly></div>
                         <div class="col-md-6"><label style="color: black;" class="labels">Fecha de Nacimiento</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="date" value="<%= person.getBirthDay()%>" readonly></div>
                         <div class="col-md-12"><label style="color: black;" class="labels">Correo Electrónico</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getEmail()%>" readonly></div>

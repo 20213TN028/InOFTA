@@ -1,7 +1,6 @@
 <%@ page import="com.edu.utez.asesesoria.model.suscriptions.BeanSuscription" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.edu.utez.asesesoria.model.courses.BeanCourse" %>
-<%@ page import="com.edu.utez.asesesoria.model.people.BeanPerson" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String email2 = (String) (session.getAttribute("email"));
@@ -19,42 +18,56 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <%
+                    List<BeanSuscription> suscs = (List<BeanSuscription>) request.getAttribute("suscs");
+                    int count = 1;
+                    BeanCourse course = (BeanCourse) request.getAttribute("course");
+                %>
                 <div class="card-header">
                     <div class="row">
-                        <div class="col fw-bold">Grupo: blabla</div>
-                        <!--<div class="col text-end">
-                            <a href="register-course" class="btn btn-outline-primary btn-sm">
-                                <i class="fa-solid fa-backpack"></i> AGREGAR TALLER
-                            </a>
-                        </div>-->
+                        <div class="col fw-bold">Grupo</div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <%
-                                BeanCourse course = (BeanCourse) request.getAttribute("course");
-                            %>
-                            <%
-                                List<BeanSuscription> suscs = (List<BeanSuscription>) request.getAttribute("suscs");
-                                int count = 1;
-                            %>
                             <table class="table table-hover table-sm">
                                 <thead>
                                 <th>#</th>
-                                <th>Status</th>
-                                <th>Users ID</th>
-                                <th>Course ID</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
                                 </thead>
                                 <tbody>
                                 <%
-                                    for(BeanSuscription susc : suscs){
+                                    for (BeanSuscription susc : suscs) {
                                 %>
+                                <input type="hidden" name="idC" id="idC" value="<%= susc.getCourseId()%>">
                                 <tr>
                                     <td><%= count++%></td>
-                                    <td><%= susc.getStatus()%></td>
-                                    <td><%= susc.getUsersId()%></td>
-                                    <td><%= susc.getCourseId()%></td>
+                                    <td><%= susc.getNameStudent() + " " + susc.getSurnameStudent() + " " + susc.getLastnameStudent()%></td>
+                                    <td>
+                                        <%
+                                            if (susc.getStatusStudent() == 1 || susc.getStatusStudent() == 2) {
+                                        %>
+                                            En curso
+                                        <%
+                                            } else if (susc.getStatusStudent() == 3) {
+                                        %>
+                                            Liberado
+                                        <%
+                                            } else if (susc.getStatusStudent() == 4) {
+                                        %>
+                                            No liberado
+                                        <%
+                                            } else {
+                                        %>
+                                            Baja
+                                        <%
+                                            }
+                                        %>
+                                    </td>
+                                    <td>Coming Soon!</td>
                                 </tr>
                                 <%
                                     }

@@ -33,7 +33,7 @@
                                     </div>
                                     <input type="hidden" name="id" id="id" value="<%= quarter.getId()%>">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="validationCustom06" class="form-label fw-bold">Fecha de Inicio:</label>
                                     <input type="date" class="form-control" id="validationCustom06" value="<%= quarter.getStartDate()%>" required
                                            name="startDate">
@@ -41,7 +41,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="validationCustom07" class="form-label fw-bold">Fecha de Fin:</label>
                                     <input type="date" class="form-control" id="validationCustom07" value="<%= quarter.getEndDate()%>"  required
                                            name="endDate">
@@ -51,7 +51,7 @@
                                 </div>
                                 <hr>
                                 <div class="col-12 text-end">
-                                    <a href="get-quarters" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                                    <a href="get-quarters" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-ban"></i> Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
                                 </div>
                             </form>

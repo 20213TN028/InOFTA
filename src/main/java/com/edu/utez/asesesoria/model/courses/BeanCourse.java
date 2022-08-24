@@ -8,6 +8,7 @@ public class BeanCourse {
     private long placeId;
     private long usersId;
     private long scheId;
+    private String image;
     private String placeName;
     private String usersName;
     private String scheName;
@@ -87,5 +88,28 @@ public class BeanCourse {
     }
     public void setScheName(String scheName) {
         this.scheName = scheName;
+    }
+    public String getImage() {
+        return image;
+    }
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
+    @Override
+    public String toString() {
+        return "BeanCourse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", status=" + status +
+                ", placeId=" + placeId +
+                ", usersId=" + usersId +
+                ", scheId=" + scheId +
+                ", placeName='" + placeName + '\'' +
+                ", usersName='" + usersName + '\'' +
+                ", scheName='" + scheName + '\'' +
+                '}';
     }
 }

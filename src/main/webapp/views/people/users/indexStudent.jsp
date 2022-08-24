@@ -30,6 +30,8 @@
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <span style="color:black;" class="font-weight-bold"><%= person.getName()+" "+person.getSurname()+" "+person.getLastname()%></span>
                     <span style="color: black;" class="text-black-50"><%= person.getEmail()%></span>
+                    <img src="..." class="rounded-circle mt-5" style="width: 80px;" alt="Avatar" />
+                    <div class="mt-5 text-center"><a href="update-student?id=<%= person.getId()%>" class="btn btn-outline-warning btn-sm">Modificar Datos</a></div>
                 </div>
             </div>
             <div class="col-md-8 border">
@@ -44,7 +46,7 @@
                         <div class="col-md-6"><label style="color: black;" class="labels">Fecha de Nacimiento</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="date" value="<%= person.getBirthDay()%>" readonly></div>
                         <div class="col-md-12"><label style="color: black;" class="labels">Correo Electrónico</label><input style="background-color:#009575; color: white;" class="form-control" class="btn btn-outline-success" type="text" value="<%= person.getEmail()%>" readonly></div>
                         <div class="mt-5 text-center"><button style="background-color:#094770; color: white;" type="button" class="btn btn-secondary">Cambiar Contraseña</button></div>
-                        <div class="mt-5 text-center"><a href="update-student?id=<%= person.getId()%>" class="btn btn-outline-warning btn-sm">Modificar Datos</a></div>
+
                     </div>
                 </div>
 

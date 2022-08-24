@@ -5,6 +5,10 @@ public class BeanSuscription {
     private int status;
     private long usersId;
     private long courseId;
+    private String nameStudent;
+    private String surnameStudent;
+    private String lastnameStudent;
+    private int statusStudent;
 
     public BeanSuscription() {
     }
@@ -45,5 +49,37 @@ public class BeanSuscription {
 
     public void setCourseId(long courseId) {
         this.courseId = courseId;
+    }
+
+    public String getNameStudent() {
+        return nameStudent;
+    }
+
+    public void setNameStudent(String nameStudent) {
+        this.nameStudent = nameStudent;
+    }
+
+    public String getSurnameStudent() {
+        return surnameStudent;
+    }
+
+    public void setSurnameStudent(String surnameStudent) {
+        this.surnameStudent = surnameStudent;
+    }
+
+    public String getLastnameStudent() {
+        return lastnameStudent;
+    }
+
+    public void setLastnameStudent(String lastnameStudent) {
+        this.lastnameStudent = lastnameStudent;
+    }
+
+    public int getStatusStudent() {
+        return statusStudent;
+    }
+
+    public void setStatusStudent(int statusStudent) {
+        this.statusStudent = statusStudent;
     }
 }

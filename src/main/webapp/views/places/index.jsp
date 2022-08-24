@@ -23,7 +23,7 @@
                             <div class="col fw-bold">Listado de Espacios</div>
                             <div class="col text-end">
                                 <a href="register-place" class="btn btn-outline-primary btn-sm">
-                                    <i class="fa-solid fa-location-plus"></i> AGREGAR ESPACIO
+                                    <i class="fa-solid fa-square-plus"></i> AGREGAR ESPACIO
                                 </a>
                             </div>
                         </div>
@@ -52,17 +52,17 @@
                                             <td><%= place.getName()%></td>
                                             <td><%= place.getStatus() == 1 ? "Activo" : "Inactivo" %></td>
                                             <td>
-                                                <a href="update-place?id=<%= place.getId()%>" class="btn btn-outline-warning btn-sm">EDITAR</a>
+                                                <a href="update-place?id=<%= place.getId()%>" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i> EDITAR</a>
                                                 <%
                                                     if (place.getStatus() == 1) {
                                                 %>
                                                 <a class="btn btn-outline-danger btn-sm"
-                                                   data-bs-toggle="modal" data-bs-target="#deletePlace-<%= place.getId()%>">DESHABILITAR</a>
+                                                   data-bs-toggle="modal" data-bs-target="#deletePlace-<%= place.getId()%>"><i class="fa-solid fa-circle-exclamation"></i> DESHABILITAR</a>
                                                 <%
                                                 }else {
                                                 %>
                                                 <a class="btn btn-outline-success btn-sm"
-                                                   data-bs-toggle="modal" data-bs-target="#enablePlace-<%= place.getId()%>">HABILITAR</a>
+                                                   data-bs-toggle="modal" data-bs-target="#enablePlace-<%= place.getId()%>"><i class="fa-solid fa-circle-check"></i> HABILITAR</a>
                                                 <%
                                                     }
                                                 %>

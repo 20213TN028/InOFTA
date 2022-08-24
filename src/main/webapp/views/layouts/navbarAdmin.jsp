@@ -2,7 +2,7 @@
 <script src="https://kit.fontawesome.com/393eac67f8.js" crossorigin="anonymous"></script>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="~/../views/images/LOGO 110X62.png" alt=""></a>
+        <a class="navbar-brand" href="#"><img src="~/../views/images/logochiquito.jpg" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,7 +14,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="get-courses">
-                        <i class="fa-solid fa-book-copy"></i> Talleres</a>
+                        <i class="fa-solid fa-graduation-cap"></i> Talleres</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="get-places">

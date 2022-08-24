@@ -192,7 +192,7 @@ public class DaoPerson {
         BeanPerson person = new BeanPerson();
         try {
             conn = new MySQLConnection().connect();
-            pste = conn.prepareStatement("SELECT users.id, email, password, role, course.id FROM users JOIN course ON users.id = course.users_id WHERE email=? AND password=?;");
+            pste = conn.prepareStatement("SELECT users.id, email, password, role, status FROM users WHERE email=? AND password=?;");
             pste.setString(1, email);
             pste.setString(2, password);
             rs = pste.executeQuery();
@@ -201,8 +201,8 @@ public class DaoPerson {
                 person.setEmail(rs.getString("email"));
                 person.setPassword(rs.getString("password"));
                 person.setRole(rs.getString("role"));
-                person.setCouseId(rs.getLong("course.id"));
-                System.out.println("idcurso: "+person.getCouseId());
+                person.setStatus(rs.getInt("users.status"));
+                System.out.println("idcurso: "+person.getCouseId()+" Status: "+person.getStatus());
                 return person;
             }
         }catch (SQLException e){

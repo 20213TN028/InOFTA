@@ -7,6 +7,7 @@
     <jsp:include page="../layouts/head.jsp"/>
 </head>
 <body>
+<jsp:include page="../layouts/navbarStudent.jsp"/>
 <%
     BeanPerson person = (BeanPerson) request.getAttribute("person");
 %>
@@ -48,7 +49,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="validationCustom04" class="form-label fw-bold">Correo Electrónico:</label>
                                     <input type="email" class="form-control" id="validationCustom04" value="<%= person.getEmail()%>" required
                                            name="email">
@@ -56,7 +57,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="validationCustom06" class="form-label fw-bold">Fecha de Nacimiento:</label>
                                     <input type="date" class="form-control" id="validationCustom06" value="<%= person.getBirthDay()%>" required
                                            name="birthDay">
@@ -64,7 +65,7 @@
                                         Campo obligatorio.
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="validationCustom07" class="form-label fw-bold">Matrícula:</label>
                                     <input type="text" class="form-control" id="validationCustom07" value="<%= person.getStudentID()%>" required
                                            name="studentId">
@@ -74,7 +75,7 @@
                                 </div>
                                 <hr>
                                 <div class="col-12 text-end">
-                                    <a href="get-student?id=<%= person.getId()%>" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                                    <a href="get-student?id=<%= person.getId()%>" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-ban"></i> Cancelar</a>
                                     <button class="btn btn-outline-success btn-sm" type="submit"><i class="fa fa-send"></i> Enviar</button>
                                 </div>
                             </form>
